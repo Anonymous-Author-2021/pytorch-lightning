@@ -19,6 +19,7 @@ import torch
 
 from pytorch_lightning import Callback, LightningDataModule, Trainer
 from pytorch_lightning.callbacks.gpu_stats_monitor import GPUStatsMonitor
+from pytorch_lightning.callbacks.lr_monitor import LearningRateMonitor
 from pytorch_lightning.callbacks.xla_stats_monitor import XLAStatsMonitor
 from pytorch_lightning.loggers import LoggerCollection, TestTubeLogger
 from tests.deprecated_api import _soft_unimport_module
@@ -387,3 +388,13 @@ def test_v1_7_0_deprecate_gpu_stats_monitor(tmpdir):
 def test_v1_7_0_deprecate_xla_stats_monitor(tmpdir):
     with pytest.deprecated_call(match="The `XLAStatsMonitor` callback was deprecated in v1.5"):
         _ = XLAStatsMonitor()
+
+
+def test_v1_7_0_deprecate_lr_sch_names(tmpdir):
+    model = BoringModel()
+    lr_monitor = LearningRateMonitor()
+    trainer = Trainer(default_root_dir=tmpdir, fast_dev_run=True, callbacks=[lr_monitor])
+    trainer.fit(model)
+
+    with pytest.deprecated_call(match="`LearningRateMonitor.lr_sch_names` has been deprecated in v1.5"):
+        assert lr_monitor.lr_sch_names == ["lr-SGD"]
