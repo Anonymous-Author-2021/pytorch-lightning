@@ -42,8 +42,9 @@ ______________________________________________________________________
 
 You can install it with:
 ```
-pip install git+https://github.com/styler00dollar/pytorch-lightning.git
+pip install git+https://github.com/styler00dollar/pytorch-lightning.git@remotes/origin/release/1.4.x
 ```
+The master branch does not seem to work for now and I took the lastest stable release instead.
 ______________________________________________________________________
 
 ## PyTorch Lightning is just organized PyTorch
