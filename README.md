@@ -39,6 +39,11 @@ ______________________________________________________________________
 
 ###### \*Codecov is > 90%+ but build delays may show less
 ## This fork mainly just aims to restore the iteration based evaluation and checkpointing funcitonality. More information [here](https://github.com/PyTorchLightning/pytorch-lightning/issues/2534#issuecomment-948443956).
+
+You can install it with:
+```
+pip install git+https://github.com/styler00dollar/pytorch-lightning.git
+```
 ______________________________________________________________________
 
 ## PyTorch Lightning is just organized PyTorch
