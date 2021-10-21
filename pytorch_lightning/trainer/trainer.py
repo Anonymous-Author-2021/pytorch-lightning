@@ -1229,7 +1229,7 @@ class Trainer(
         if not self.is_global_zero and self.progress_bar_callback is not None:
             self.progress_bar_callback.disable()
 
-        assert self.evaluating
+        #assert self.evaluating
 
         # reload dataloaders
         self._evaluation_loop._reload_evaluation_dataloaders()
