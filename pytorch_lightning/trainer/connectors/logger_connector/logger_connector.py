@@ -148,7 +148,7 @@ class LoggerConnector:
             return
 
         # logs user requested information to logger
-        assert not self._epoch_end_reached
+        #assert not self._epoch_end_reached
         self.log_metrics(self.metrics["log"], step=self._eval_log_step)
 
         # increment the step even if nothing was logged
@@ -220,7 +220,7 @@ class LoggerConnector:
         self._log_gpus_metrics()
 
         # when metrics should be logged
-        assert not self._epoch_end_reached
+        #assert not self._epoch_end_reached
         if self.should_update_logs or self.trainer.fast_dev_run:
             self.log_metrics(self.metrics["log"])
 
@@ -283,7 +283,7 @@ class LoggerConnector:
         self._current_fx = None
 
     def on_batch_end(self) -> None:
-        assert not self._epoch_end_reached
+        #assert not self._epoch_end_reached
         metrics = self.metrics
         self._progress_bar_metrics.update(metrics["pbar"])
         self._callback_metrics.update(metrics["callback"])
